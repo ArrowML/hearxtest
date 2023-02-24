@@ -11,9 +11,9 @@ type MockDadJokeRepository struct {
 	mock.Mock
 }
 
-func (m MockDadJokeRepository) Save(ctx context.Context, js *[]model.DadJoke) (int, error) {
+func (m MockDadJokeRepository) Save(ctx context.Context, js *[]model.DadJoke) (int64, error) {
 	args := m.Called(ctx, js)
-	return args.Get(0).(int), args.Error(1)
+	return args.Get(0).(int64), args.Error(1)
 }
 
 func (m MockDadJokeRepository) FetchPage(ctx context.Context, page, limit int) (*[]model.DadJoke, error) {

@@ -10,7 +10,7 @@ import (
 
 func InitAPI(dbc *sql.DB) *gin.Engine {
 
-	r := db.PostgresDadJokeRepository{DB: dbc}
+	r := db.PostgresDadJokeRepository{DB: dbc, TableName: "dad_jokes"}
 	h := api.HandlerBackends{
 		DadJokeRepository: r,
 	}
