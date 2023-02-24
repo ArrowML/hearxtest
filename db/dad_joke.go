@@ -10,14 +10,18 @@ type PostgresDadJokeRepository struct {
 	DB *sql.DB
 }
 
-func (pg PostgresDadJokeRepository) Save(ctx context.Context, js *[]model.DadJoke) error {
-	return nil
+func (pg PostgresDadJokeRepository) Save(ctx context.Context, js *[]model.DadJoke) (int, error) {
+	return -1, nil
 }
 
-func (pg PostgresDadJokeRepository) FetchPage(ctx context.Context, page int) (*[]model.DadJoke, error) {
+func (pg PostgresDadJokeRepository) FetchPage(ctx context.Context, page, limit int) (*[]model.DadJoke, error) {
 	return nil, nil
 }
 
-func (pg PostgresDadJokeRepository) FetchRandom(ctx context.Context) (model.DadJoke, error) {
+func (pg PostgresDadJokeRepository) FetchJoke(ctx context.Context, id int) (model.DadJoke, error) {
 	return model.DadJoke{}, nil
+}
+
+func (pg PostgresDadJokeRepository) FetchAllIDs(ctx context.Context) (*[]int, error) {
+	return nil, nil
 }

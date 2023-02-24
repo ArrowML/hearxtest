@@ -31,6 +31,12 @@ github.com/stretchr/testify
 
  **CRUD** - 
 
+ **Pagination** - 
+
+ **ORM** - 
+
+ **Duplicates** - 
+
  ---
 
 ### Running the app
