@@ -17,7 +17,7 @@ func (m MockDadJokeRepository) Save(ctx context.Context, js *[]model.DadJoke) (i
 }
 
 func (m MockDadJokeRepository) FetchPage(ctx context.Context, page, limit int) (*[]model.DadJoke, error) {
-	args := m.Called(ctx, page)
+	args := m.Called(ctx, page, limit)
 	return args.Get(0).(*[]model.DadJoke), args.Error(1)
 }
 
@@ -26,7 +26,7 @@ func (m MockDadJokeRepository) FetchJoke(ctx context.Context, id int) (model.Dad
 	return args.Get(0).(model.DadJoke), args.Error(1)
 }
 
-func (m MockDadJokeRepository) FetchAllIDs(ctx context.Context) (*[]int, error) {
+func (m MockDadJokeRepository) FetchAllIDs(ctx context.Context) ([]int, error) {
 	args := m.Called(ctx)
-	return args.Get(0).(*[]int), args.Error(1)
+	return args.Get(0).([]int), args.Error(1)
 }

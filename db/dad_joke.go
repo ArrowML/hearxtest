@@ -85,13 +85,13 @@ func (pg PostgresDadJokeRepository) FetchJoke(ctx context.Context, id int) (mode
 	return j, nil
 }
 
-func (pg PostgresDadJokeRepository) FetchAllIDs(ctx context.Context) (*[]int, error) {
+func (pg PostgresDadJokeRepository) FetchAllIDs(ctx context.Context) ([]int, error) {
 
 	sqlStr := fmt.Sprintf("SELECT id FROM %s", pg.TableName)
 
 	rows, err := pg.DB.Query(sqlStr)
 	if err != nil {
-		return nil, err
+		return []int{}, err
 	}
 	defer rows.Close()
 
@@ -100,16 +100,16 @@ func (pg PostgresDadJokeRepository) FetchAllIDs(ctx context.Context) (*[]int, er
 		var id int
 		err = rows.Scan(&id)
 		if err != nil {
-			return nil, err
+			return ids, err
 		}
 		ids = append(ids, id)
 	}
 	err = rows.Err()
 	if err != nil {
-		return nil, err
+		return ids, err
 	}
 	if len(ids) == 0 {
-		return nil, sql.ErrNoRows
+		return ids, sql.ErrNoRows
 	}
-	return &ids, nil
+	return ids, nil
 }

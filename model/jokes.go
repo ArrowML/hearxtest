@@ -7,7 +7,7 @@ type DadJoke struct {
 }
 
 type PaginatedDadJokes struct {
-	Count int
-	Page  int
-	Items []DadJoke
+	Count int       `json:"total_jokes"`
+	Page  int       `json:"page"`
+	Jokes []DadJoke `json:"jokes"`
 }

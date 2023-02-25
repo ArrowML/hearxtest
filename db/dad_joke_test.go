@@ -271,7 +271,7 @@ func TestFetchAllIDs(t *testing.T) {
 	testCases := []struct {
 		name       string
 		savedJokes *[]model.DadJoke
-		expRes     *[]int
+		expRes     []int
 		expErr     error
 	}{
 		{
@@ -299,7 +299,7 @@ func TestFetchAllIDs(t *testing.T) {
 					Rating:    1,
 				},
 			},
-			expRes: &[]int{1, 2, 3},
+			expRes: []int{1, 2, 3},
 			expErr: nil,
 		},
 	}
