@@ -30,7 +30,7 @@ func InitAPI(dbc *sql.DB) *gin.Engine {
 func publicRoutes(sg *gin.RouterGroup, h api.HandlerBackends) {
 
 	sg.GET("/jokes", h.GetDadJokeHandler)
-	sg.GET("/jokes/:page", h.GetJokesPageHandler)
+	sg.GET("/jokes/page/:page", h.GetJokesPageHandler)
 }
 
 func protectedRoutes(sg *gin.RouterGroup, h api.HandlerBackends) {

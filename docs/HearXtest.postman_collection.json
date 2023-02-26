@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "9fa95f02-0f9b-4153-9136-5a8df000a86a",
+		"name": "HearXtest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24882078"
+	},
+	"item": [
+		{
+			"name": "Get Random Joke",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/v1/jokes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"jokes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Joke Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/v1/jokes/page/1?records=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"jokes",
+						"page",
+						"1"
+					],
+					"query": [
+						{
+							"key": "records",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Joke",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <secret_key>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"joke\": \"I could never be a plumber\",\n        \"punchline\": \"it’s too hard watching your life’s work go down the drain.\",\n        \"rating\": 4\n    }, \n    {\n        \"joke\": \"What time did you go to the dentist yesterday?\",\n        \"punchline\": \"Tooth-hurty.\",\n        \"rating\": 1\n    },\n    {\n        \"joke\": \"Rest in peace, boiled water.\",\n        \"punchline\": \"You will be mist.\",\n        \"rating\": 5\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/v1/jokes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"v1",
+						"jokes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
